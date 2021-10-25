@@ -14,15 +14,32 @@ new Vue({
 }).$mount('#app')
 
 ```
-### Mthods
+### Methods
 #### filters
-- dateFormat('yyyy-MM-dd hh:mm:ss')：时间格式化
+- 时间格式化：dateFormat('yyyy-MM-dd hh:mm:ss')  
+
+```
+{{ 1634980348 | dateFormat('yyyy-MM-dd hh:mm:ss')}} // 2021-10-23 17:12:28
+```
 
 #### directives
-- v-focus：聚焦指令
+- 输入框聚焦：v-focus  
+
+```
+<input type="text" v-focus>
+```
 
 #### components
-- loading: 全屏加载组件，方法：this.$loading.show({text: 'String', bgColor:'color'}) 和 hide()
+- 全屏加载组件：loading
+```
+this.$loading.show();
+this.$loading.show({text: '加载中', bgColor:'#42b983'});
+this.$loading.hide();
+```
 
 #### utils
-- filterXSS(string)：文本标签转义
+- 转义重点字符：filterXSS
+```
+const str = '<sciprt123></sciprt123>'
+const result = this.$utils.filterXSS(str); // &#x3c;sciprt123&#x3e;&#x3c;/sciprt123&#x3e;
+```
